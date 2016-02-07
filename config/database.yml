@@ -4,8 +4,8 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: root
-  password:
+  username: "root"
+  password: "martin85"
 
 development:
   <<: *default
