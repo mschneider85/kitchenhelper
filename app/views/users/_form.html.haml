@@ -1,0 +1,21 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-4= f.input :first_name
+      .col-md-4= f.input :last_name
+    .row
+      .col-md-4= f.input :email, required: true
+      .col-md-4= f.input :role
+    .row
+      .col-md-4= f.input :password, autocomplete: "off", required: true
+    .row
+      .col-md-4= f.input :password_confirmation, required: true
+
+  .forms-actions
+    = link_to users_path, class: 'btn btn-default' do
+      = t('buttons.back')
+    = button_tag(type: "submit", class: "btn btn-primary") do
+      = t('buttons.save')
+    %br &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

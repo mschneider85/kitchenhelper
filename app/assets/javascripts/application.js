@@ -15,3 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require materialize-sprockets
+//= require _materialize-rails-confirm.coffee

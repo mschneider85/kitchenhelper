@@ -1,0 +1,28 @@
+%h1= t('models.user', "count": 2)
+%p
+  = link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light red" do
+    %i.material-icons add
+
+%table.table.table-bordered.users
+  %thead
+    %tr
+      %th.col-md-2 First Name
+      %th.col-md-2 Last Name
+      %th.col-md-5 Email
+      %th.col-md-2 Role
+      %th test
+      %th.col-md-1
+  %tbody
+    - @users.each do |user|
+      - unless user.role == 'superadmin' && current_user.role == 'admin'
+        %tr
+          %td= user.first_name
+          %td= user.last_name
+          %td= user.email
+          %td= user.role
+          %td= puts user
+          %td
+            = link_to edit_user_path(user), class: "btn btn-default btn-sm" do
+              = icon('pencil')
+            = link_to user_path(user), method: :delete, data: { confirm: 'really?' }, class: 'btn btn-danger btn-sm' do
+              = icon('trash')
