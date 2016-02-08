@@ -17,3 +17,5 @@
 //= require_tree .
 //= require materialize-sprockets
 //= require _materialize-rails-confirm.coffee
+
+@import "materialize";

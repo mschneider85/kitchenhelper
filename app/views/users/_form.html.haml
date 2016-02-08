@@ -9,7 +9,7 @@
           .col.s6= f.input :last_name
     .row
       .col-md-4= f.input :email, required: true
-      .col-md-4= f.input :role, collection: User::ROLES.reject {|role| role == 'superadmin' && current_user.role != 'superadmin'}, include_blank: false
+      .col-md-4= f.input :role
     .row
       .col-md-4= f.input :password, autocomplete: "off", required: true
     .row
@@ -20,4 +20,3 @@
       = t('buttons.back')
     = button_tag(type: "submit", class: "btn btn-primary") do
       = t('buttons.save')
-    %br &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
