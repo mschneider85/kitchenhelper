@@ -3,11 +3,13 @@
 
   .form-inputs
     .row
-      .col-md-4= f.input :first_name
-      .col-md-4= f.input :last_name
+      .col.s12
+        .row
+          .col.s6= f.input :first_name
+          .col.s6= f.input :last_name
     .row
       .col-md-4= f.input :email, required: true
-      .col-md-4= f.input :role
+      .col-md-4= f.input :role, collection: User::ROLES.reject {|role| role == 'superadmin' && current_user.role != 'superadmin'}, include_blank: false
     .row
       .col-md-4= f.input :password, autocomplete: "off", required: true
     .row

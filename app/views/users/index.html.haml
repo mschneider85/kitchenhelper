@@ -3,26 +3,30 @@
   = link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light red" do
     %i.material-icons add
 
-%table.table.table-bordered.users
+%table.highlight
   %thead
     %tr
+      %th Avatar
       %th.col-md-2 First Name
       %th.col-md-2 Last Name
       %th.col-md-5 Email
       %th.col-md-2 Role
-      %th test
       %th.col-md-1
   %tbody
     - @users.each do |user|
       - unless user.role == 'superadmin' && current_user.role == 'admin'
         %tr
+          %td= image_tag avatar_url(current_user), class: "circle"
           %td= user.first_name
           %td= user.last_name
           %td= user.email
-          %td= user.role
-          %td= puts user
+          %td= user.role.humanize
           %td
             = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
               = icon('pencil')
-            = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: (current_user.id == user.id ? 'btn disabled' : 'waves-effect waves-light btn') do
-              = icon('trash')
+            - if current_user && (current_user.id == user.id)
+              %btn.btn.disabled
+                = icon('trash')
+            - else
+              = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
+                = icon('trash')
