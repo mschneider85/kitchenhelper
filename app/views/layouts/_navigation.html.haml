@@ -1,36 +1,35 @@
-%nav
-  .nav-wrapper
-    %a.brand-logo{:href => "#!"}
-      %b kitchenhelper!
-    %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
-      %i.material-icons menu
-    %ul.right.hide-on-med-and-down
-      - if can?(:read, User)
-        %li#users
-          = link_to users_path do
-            %i.material-icons people
+.nav-wrapper.container
+  %a.brand-logo#logo-container{:href => "/"}
+    %b kitchenhelper!
+  %a.button-collapse{"data-activates" => "nav-mobile", href: "#"}
+    %i.material-icons menu
+  %ul.right.hide-on-med-and-down
+    - if can?(:read, User)
+      %li#users
+        = link_to users_path do
+          %i.material-icons people
+    %li
+      %a{href: "badges.html"}
+        %i.material-icons view_module
+    - if user_signed_in?
       %li
-        %a{:href => "badges.html"}
-          %i.material-icons view_module
-      - if user_signed_in?
-        %li
-          = link_to('Logout', destroy_user_session_path, method: :delete)
-      - else
-        %li
-          = link_to('Login', new_user_session_path)
-    %ul#mobile-demo.side-nav
-      - if can?(:read, User)
-        %li#users
-          = link_to 'Users', users_path
+        = link_to('Logout', destroy_user_session_path, method: :delete)
+    - else
       %li
-        %a{:href => "badges.html"}
-          %i.material-icons view_module
-      - if user_signed_in?
-        %li
-          = link_to('Logout', destroy_user_session_path, method: :delete)
-      - else
-        %li
-          = link_to('Login', new_user_session_path)
+        = link_to('Login', new_user_session_path)
+  %ul#nav-mobile.side-nav
+    - if can?(:read, User)
+      %li#users
+        = link_to 'Users', users_path
+    %li
+      %a{href: "badges.html"}
+        %i.material-icons view_module
+    - if user_signed_in?
+      %li
+        = link_to('Logout', destroy_user_session_path, method: :delete)
+    - else
+      %li
+        = link_to('Login', new_user_session_path)
 
 :coffee
   $(document).ready ->
