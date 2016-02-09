@@ -1,35 +1,37 @@
-#index-banner.section.no-pad-bot
-  .container
-    %br
-      %br
-        %h1.header.center kitchenhelper! v 0.1 alpha
-        .row.center
-          %h5.header.col.s12.light A modern responsive front-end framework for storing your recipes
-        .row.center
-          %a#download-button.btn-large.waves-effect.waves-light{:href => "http://materializecss.com/getting-started.html"} Get Started
-.container
-  .section
-    / Icon Section
-    .row
-      .col.s12.m4
-        .icon-block
-          %h2.center.teal-text
-            %i.medium.material-icons description
-          %h5.center Your personal storage
-          %p.light Store your recipes. Import them from well-known recipe databases on the internet. Export them to printer-friendly files. We do the heavy lifting for you - to free up your time. Your time to cook!
-      .col.s12.m4
-        .icon-block
-          %h2.center.teal-text
-            %i.medium.material-icons share
-          %h5.center Share with friends
-          %p.light Join a kitchen crew with friends and share your favorite recipes with them. Publish your recipes for the community.
-      .col.s12.m4
-        .icon-block
-          %h2.center.teal-text
-            %i.medium.fa.fa-github
-          %h5.center Contribute
-          %p.light
+.intro.teal.lighten-2.z-depth-1
+  %h1.header.center kitchenhelper! v 0.1 alpha
+  .row.center
+    %h5.header.col.s12.light A modern responsive front-end framework for storing your recipes
+  .row.center
+    %a#download-button.red.btn-large.waves-effect.waves-light{:href => "http://materializecss.com/getting-started.html"} Get Started
+.container.about
+  %h5 about the project
+  %h6 what's it all about
+  %hr
+  .row
+    .col.s12.m4
+      .icon-block
+        %h2.center.teal-text
+          %i.medium.material-icons description
+        %h5.center Your personal storage
+        %p.light Store your recipes. Import them from well-known recipe databases on the internet. Export them to printer-friendly files. We do the heavy lifting for you - to free up your time. Your time to cook!
+    .col.s12.m4
+      .icon-block
+        %h2.center.teal-text
+          %i.medium.material-icons share
+        %h5.center Share with friends
+        %p.light Join a kitchen crew with friends and share your favorite recipes with them. Publish your recipes for the community.
+    .col.s12.m4
+      .icon-block
+        %h2.center.teal-text
+          %i.medium.fa.fa-github
+        %h5.center Contribute
+        .card.hoverable.blue-grey.darken-1
+          .card-content.white-text.light
             Join us at
             %a{:href => "https://github.com/mschneider85/kitchenhelper"}github
             and help making this the most advanced recipe database ever. kitchenhelper!
-      .section
+          .card-action
+            %a{:href => "#"} Link
+            %a{:href => "#"} Link
+    .section

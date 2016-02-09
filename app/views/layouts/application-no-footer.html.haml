@@ -10,13 +10,12 @@
     = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
   %body
     %main
-      %nav{role: "navigation"}
-        = render 'layouts/navigation'
-      .container
-        .section
-          = render 'layouts/flash_messages'
-          = yield
-    %footer.page-footer
+      .navbar-fixed
+        %nav.red{role: "navigation"}
+          = render 'layouts/navigation'
+    = render 'layouts/flash_messages'
+    = yield
+    %footer.red.page-footer
       .footer-copyright
         .container
           © 2016 kitchenhelper!
