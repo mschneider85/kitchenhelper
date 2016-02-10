@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     if devise_controller?
-      "application-no-footer"
+      "application"
     else
       "application"
     end

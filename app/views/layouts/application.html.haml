@@ -17,24 +17,22 @@
         .section
           = render 'layouts/flash_messages'
           = yield
-    %footer.red.page-footer
+    %footer.teal.lighten-2.page-footer.white-text
       .container
         .row
           .col.l6.s12
-            %h5.white-text kitchenhelper!
-            %p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
+            %h5 kitchenhelper!
+            %p Work in progress.
           .col.l4.offset-l2.s12
-            %h5.white-text Links
+            %h5 Contact
             %ul
               %li
-                %a.grey-text.text-lighten-3{:href => "#!"} Link 1
+                %iframe{:frameborder => "0", :height => "30px", :scrolling => "0", :src => "https://ghbtns.com/github-btn.html?user=mschneider85&repo=kitchenhelper&type=star&count=true&size=large", :width => "160px"}
               %li
-                %a.grey-text.text-lighten-3{:href => "#!"} Link 2
+                Martin Schneider
               %li
-                %a.grey-text.text-lighten-3{:href => "#!"} Link 3
               %li
-                %a.grey-text.text-lighten-3{:href => "#!"} Link 4
       .footer-copyright
         .container
-          © 2014 Copyright Text
-          %a.grey-text.text-lighten-4.right{:href => "#!"} More Links
+          © 2016 kitchenhelper!
+          %a.grey-text.text-lighten-4.right{:href => "mailto:mschneider85@gmx.de"} mschneider85@gmx.de

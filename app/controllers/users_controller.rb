@@ -14,10 +14,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def sign_in
-    layout 'application-no-footer'
-  end
-
   def create
     @user = User.new(user_params)
     @user.attributes = user_password_params

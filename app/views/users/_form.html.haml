@@ -8,15 +8,17 @@
           .col.s6= f.input :first_name
           .col.s6= f.input :last_name
     .row
-      .col-md-4= f.input :email, required: true
-      .col-md-4= f.input :role
+      .col.s12= f.input :email, required: true
+      .col.s12
+        .input-field
+          = f.input :role, collection: User::ROLES
     .row
-      .col-md-4= f.input :password, autocomplete: "off", required: true
+      .col.s12= f.input :password, autocomplete: "off", required: true
     .row
-      .col-md-4= f.input :password_confirmation, required: true
+      .col.s12= f.input :password_confirmation, required: true
 
-  .forms-actions
-    = link_to users_path, class: 'btn btn-default' do
+  .form-actions
+    = link_to users_path, class: 'waves-effect waves-light btn' do
       = t('buttons.back')
-    = button_tag(type: "submit", class: "btn btn-primary") do
+    = button_tag(type: "submit", class: "waves-effect waves-light btn") do
       = t('buttons.save')
