@@ -49,7 +49,7 @@ private
   end
 
   def user_params
-   params.require(:user).permit(:email, :first_name, :last_name, :role)
+   params.require(:user).permit(:email, :first_name, :last_name)
   end
 
   def user_password_params

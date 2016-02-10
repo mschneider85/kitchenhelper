@@ -9,9 +9,6 @@
           .col.s6= f.input :last_name
     .row
       .col.s12= f.input :email, required: true
-      .col.s12
-        .input-field
-          = f.input :role, collection: User::ROLES
     .row
       .col.s12= f.input :password, autocomplete: "off", required: true
     .row

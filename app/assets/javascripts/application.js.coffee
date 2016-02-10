@@ -19,4 +19,4 @@
 #= require _materialize-rails-confirm.coffee
 
 $(document).on 'ready page:change', ->
-    Waves.displayEffect()
+  Waves.displayEffect()

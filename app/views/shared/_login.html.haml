@@ -1,9 +1,14 @@
-%h2#login Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = button_tag type: :submit, class: 'btn waves-effect waves-light' do
-      Login
+#modal-login.modal.offset-m2.col.s12.m4
+  .modal-content
+    %h4 Log in
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        = f.input :email, required: false
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .form-actions
+        = button_tag type: :submit, class: 'btn waves-effect waves-light' do
+          Login
+
+  .modal-footer
+

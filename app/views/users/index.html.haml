@@ -10,17 +10,15 @@
       %th.col-md-2 First Name
       %th.col-md-2 Last Name
       %th.col-md-5 Email
-      %th.col-md-2 Role
       %th.col-md-1
   %tbody
     - @users.each do |user|
       - unless user.role == 'superadmin' && current_user.role == 'admin'
         %tr
-          %td= image_tag avatar_url(current_user), class: "circle"
+          %td= image_tag avatar_url(user), class: "circle"
           %td= user.first_name
           %td= user.last_name
           %td= user.email
-          %td= user.role.humanize
           %td
             = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
               = icon('pencil')

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
 
-  root 'welcome#index'
+  devise_for :users
   resources :users, except: :show
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
   end
+
+  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

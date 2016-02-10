@@ -3,7 +3,7 @@
   .row.center
     %h5.header.col.s12.light A modern responsive front-end framework for storing your recipes
   .row.center
-    %a#download-button.red.btn-large.waves-effect.waves-light{:href => "#login"} Get Started
+    %a#btn.red.btn-large.waves-effect.waves-light{:href => "#"} Get Started
 .container.about
   %h5 about the project
   %h6 what's it all about
@@ -38,3 +38,8 @@
       .login
         =render "shared/login"
     .section
+
+:coffee
+  $(document).ready ->
+    $('.modal-trigger').leanModal
+      dismissible: true
