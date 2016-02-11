@@ -20,3 +20,11 @@
 
 $(document).on 'ready page:change', ->
   Waves.displayEffect()
+
+$(document).ready ->
+  $ ->
+    $(window).scroll ->
+      if $(this).scrollTop() > 100
+        $('.navbar-fixed').fadeOut()
+      else
+        $('.navbar-fixed').fadeIn()
