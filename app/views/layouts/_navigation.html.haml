@@ -1,35 +1,35 @@
 .nav-wrapper.container
-  %a.brand-logo#logo-container{:href => "/"}
+  %a.brand-logo#logo-container{href: '/'}
     %b kitchenhelper!
-  %a.button-collapse{"data-activates" => "nav-mobile", href: "#"}
+  %a.button-collapse{'data-activates' => 'nav-mobile', href: '#'}
     %i.material-icons menu
   %ul.right.hide-on-med-and-down
+    %li#welcome.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Dashboard"}
+      = link_to '/' do
+        %i.material-icons view_module
     - if can?(:read, User)
-      %li#users
+      %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Users"}
         = link_to users_path do
           %i.material-icons people
-    %li
-      %a{href: "badges.html"}
-        %i.material-icons view_module
     - if user_signed_in?
       %li
-        = link_to('Logout', logout_path, method: :delete)
+        = render 'layouts/user_options'
     - else
       %li
-        = link_to('Login', login_path)
+        = link_to 'Login', login_path
   %ul#nav-mobile.side-nav
+    %li
+      = link_to '/' do
+        %i.material-icons view_module
     - if can?(:read, User)
       %li#users
         = link_to 'Users', users_path
-    %li
-      %a{href: "badges.html"}
-        %i.material-icons view_module
     - if user_signed_in?
       %li
-        = link_to('Logout', destroy_user_session_path, method: :delete)
+        = link_to 'Logout', logout_path, method: :delete
     - else
       %li
-        = link_to('Login', new_user_session_path)
+        = link_to 'Login', login_path
 
 :coffee
   $(document).ready ->

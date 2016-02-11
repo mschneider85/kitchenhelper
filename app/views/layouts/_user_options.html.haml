@@ -1,0 +1,18 @@
+%a.dropdown-button{"data-activates" => "user-options", href: "#"}
+  = current_user.email
+  &nbsp;&#9662;
+
+%ul#user-options.dropdown-content
+  %li
+    %a{href: "#"}
+      %i.material-icons.left settings
+      Settings
+  %li
+    %a{href: "#"}
+      %i.material-icons.left info
+      Info
+  %li.divider
+  %li
+    = link_to logout_path, method: :delete do
+      %i.material-icons.left power_settings_new
+      Logout
