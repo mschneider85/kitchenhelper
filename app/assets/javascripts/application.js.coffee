@@ -22,9 +22,12 @@ $(document).on 'ready page:change', ->
   Waves.displayEffect()
 
 $(document).ready ->
-  $ ->
-    $(window).scroll ->
-      if $(this).scrollTop() > 100
-        $('.navbar-fixed').fadeOut()
+  $(window).scroll ->
+    mywindow = $(window)
+    mypos = mywindow.scrollTop()
+    mywindow.scroll ->
+      if mywindow.scrollTop() > mypos
+        $('.navbar-fixed').addClass('nav-up')
       else
-        $('.navbar-fixed').fadeIn()
+        $('.navbar-fixed').removeClass('nav-up')
+      mypos = mywindow.scrollTop()

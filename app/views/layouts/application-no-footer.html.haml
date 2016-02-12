@@ -13,11 +13,11 @@
       .navbar-fixed
         %nav.red{role: "navigation"}
           = render 'layouts/navigation'
-    = render 'layouts/flash_messages'
-    = yield
-    %footer.teal.page-footer
-      .footer-copyright.white.black-text.text-lighten-4
-        .container
-          © 2016 kitchenhelper!
-          %a.right{:href => "mailto:mschneider85@gmx.de"} mschneider85@gmx.de
-    =render "shared/login"
+      = render 'layouts/flash_messages'
+      = yield
+      %footer.teal.page-footer
+        .footer-copyright.white.black-text.text-lighten-4
+          .container
+            © 2016 kitchenhelper!
+            %a.right{:href => "mailto:mschneider85@gmx.de"} mschneider85@gmx.de
+      =render "shared/login"
