@@ -26,8 +26,8 @@ $(document).ready ->
     mywindow = $(window)
     mypos = mywindow.scrollTop()
     mywindow.scroll ->
-      if mywindow.scrollTop() > mypos
+      if mywindow.scrollTop() > mypos && mypos > 200
         $('.navbar-fixed').addClass('nav-up')
-      else
+      else if $(document).height() - $(window).height() - $(window).scrollTop() > 200
         $('.navbar-fixed').removeClass('nav-up')
       mypos = mywindow.scrollTop()
