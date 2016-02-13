@@ -21,10 +21,11 @@
           %td= user.email
           %td
             = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
-              = icon('pencil')
+              %i.material-icons edit
             - if current_user && (current_user.id == user.id)
               %btn.btn.disabled
-                = icon('trash')
+                %i.material-icons delete_forever
             - else
               = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
-                = icon('trash')
+                %i.material-icons delete_forever
+

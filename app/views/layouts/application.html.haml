@@ -15,6 +15,7 @@
           = render 'layouts/navigation'
       .container
         .section
+          = render_breadcrumbs
           = render 'layouts/flash_messages'
           = yield
     %footer.teal.lighten-2.page-footer.white-text

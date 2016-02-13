@@ -39,6 +39,8 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'nested_form'
 gem 'kaminari'
+gem 'filterrific'
+gem 'breadcrumbs_on_rails'
 
 gem 'devise'
 gem 'cancancan'
