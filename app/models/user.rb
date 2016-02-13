@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :confirmable, :trackable, :lockable, :recoverable, :registerable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :trackable
 
-  validates :email, presence: true
+  validates :first_name, :last_name, :password, :password_confirmation, presence: true
 
   def name
     "#{first_name} #{last_name}"
