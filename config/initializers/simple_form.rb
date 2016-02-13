@@ -50,18 +50,46 @@ SimpleForm.setup do |config|
     #
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
+  config.wrappers tag: :div, class: :input, error_class: :"error-field" do |b|
+    # Form extensions
+    b.use :html5
+    b.optional :pattern
+    b.use :maxlength
+    b.use :placeholder
+    b.use :readonly
+
+    # Form components
+    b.use :label
+    b.use :input, class: 'validate', error_class: 'invalid'
+    b.use :hint,  wrap_with: { tag: :span, class: :hint }
+    b.use :error, wrap_with: { tag: :span, class: :error }
+  end
+  config.wrappers :material, tag: 'div', class: 'input-field', error_class: 'error-field' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :input
+    b.use :label
+    b.use :error, wrap_with: { tag: 'span', class: 'error-block red-text text-darken-2' }
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+  end
+
+  config.error_notification_class = 'error-notification card-panel red lighten-4'
+  config.button_class = 'btn waves-effect waves-light'
+  config.boolean_label_class = nil
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper = :material
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
   #   nested: label > input
-  config.boolean_style = :nested
 
-  # Default class for buttons
-  config.button_class = 'btn'
+  config.boolean_style = :nested
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -70,9 +98,6 @@ SimpleForm.setup do |config|
 
   # Default tag used for error notification helper.
   config.error_notification_tag = :div
-
-  # CSS class to add for error notification helper.
-  config.error_notification_class = 'error_notification'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -154,7 +179,7 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'checkbox'
+  # config.boolean_label_class = 'checkbox'
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.

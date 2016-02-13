@@ -1,12 +1,12 @@
-= simple_form_for(@user) do |f|
+= simple_form_for @user do |f|
   = f.error_notification
 
   .form-inputs
     .row
       .col.s12
         .row
-          .col.s6= f.input :first_name
-          .col.s6= f.input :last_name
+          .col.s12.m6= f.input :first_name
+          .col.s12.m6= f.input :last_name
     .row
       .col.s12= f.input :email, required: true
     .row
