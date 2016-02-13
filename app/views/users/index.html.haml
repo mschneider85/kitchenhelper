@@ -7,10 +7,10 @@
   %thead
     %tr
       %th Avatar
-      %th.col-md-2 First Name
-      %th.col-md-2 Last Name
-      %th.col-md-5 Email
-      %th.col-md-1
+      %th First Name
+      %th Last Name
+      %th Email
+      %th
   %tbody
     - @users.each do |user|
       - unless user.role == 'superadmin' && current_user.role == 'admin'

@@ -20,6 +20,7 @@
 
 $(document).on 'ready page:change', ->
   Waves.displayEffect()
+  $('select').material_select()
 
 $(document).ready ->
   $(window).scroll ->

@@ -13,6 +13,10 @@
       .col.s12= f.input :password, autocomplete: "off", required: true
     .row
       .col.s12= f.input :password_confirmation, required: true
+    - if can?(:manage, :user) && action_name == 'edit'
+      /= f.simple_fields_for :role do |r|
+      .row
+        .col.s12= f.association :role, collection: Role.all
 
   .form-actions
     = link_to users_path, class: 'waves-effect waves-light btn' do

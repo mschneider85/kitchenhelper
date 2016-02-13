@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  before_create :set_default_role
+  accepts_nested_attributes_for :role
+  before_validation :set_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :trackable, :lockable, :recoverable, :registerable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :trackable
