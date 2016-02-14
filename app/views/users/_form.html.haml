@@ -1,24 +1,25 @@
 = simple_form_for @user do |f|
   = f.error_notification
-
-  .form-inputs
-    .row
-      .col.s12
-        .row
-          .col.s12.m6= f.input :first_name
-          .col.s12.m6= f.input :last_name
-    .row
-      .col.s12= f.input :email, required: true
-    .row
-      .col.s12= f.input :password, autocomplete: "off", required: true
-    .row
-      .col.s12= f.input :password_confirmation, required: true
-    - if can?(:manage, :user) && action_name == 'edit'
+  .section
+    .form-inputs
       .row
-        .col.s12= f.association :role, collection: Role.all
-
-  .form-actions
-    = link_to users_path, class: 'waves-effect waves-light btn' do
-      = t('buttons.back')
-    = button_tag(type: "submit", class: "waves-effect waves-light btn") do
-      = t('buttons.save')
+        .col.s12
+          .row
+            .col.s12.m6= f.input :first_name
+            .col.s12.m6= f.input :last_name
+      .row
+        .col.s12= f.input :email, required: true
+      .row
+        .col.s12= f.input :password, autocomplete: "off", required: true
+      .row
+        .col.s12= f.input :password_confirmation, required: true
+      - if can?(:manage, :user) && action_name == 'edit'
+        .row
+          .col.s12= f.association :role, collection: Role.all
+  .divider
+  .section
+    .form-actions
+      = link_to users_path, class: 'waves-effect waves-light btn' do
+        = t('buttons.back')
+      = button_tag(type: "submit", class: "waves-effect waves-light btn") do
+        = t('buttons.save')

@@ -34,10 +34,11 @@ main {
 .error-block {
   font-size: 0.8rem;
 }
+
 nav#breadcrumb {
   padding-left: 20px;
 }
 
-main {
-  overflow: auto;
+td {
+  word-break: break-all;
 }

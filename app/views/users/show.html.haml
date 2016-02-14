@@ -1,19 +1,26 @@
-.col.s2
-  = image_tag avatar_url_big(@user), class: "materialboxed", width: "130px"
-.col.s2
-  %h4
-    = @user.name
-%table.striped{:width => "400"}
-  %tr
-    %th Avatar
-    %td
-      = link_to "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", target: '_blank'
-  %tr
-    %th Name
-    %td= @user.name
-  %tr
-    %th Email
-    %td= @user.email
-  %tr
-    %th Role
-    %td= @user.role.name.humanize
+.section
+  .col.s2
+    = image_tag avatar_url_big(@user), class: "materialboxed", width: "130px"
+  .col.s2
+    %h4
+      = @user.name
+  %table.striped
+    %tr
+      %th Avatar
+      %td
+        = link_to "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", target: '_blank'
+    %tr
+      %th Name
+      %td= @user.name
+    %tr
+      %th Email
+      %td= @user.email
+    %tr
+      %th Role
+      %td= @user.role.name.humanize
+.divider
+.section
+  = link_to users_path, class: 'waves-effect waves-light btn' do
+    Back
+  = link_to edit_user_path(@user), class: 'waves-effect waves-light btn' do
+    Edit
