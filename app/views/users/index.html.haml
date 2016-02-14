@@ -3,29 +3,29 @@
   = link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light red" do
     %i.material-icons add
 
-%table.highlight
+%table.highlight#users
   %thead
     %tr
       %th Avatar
       %th First Name
       %th Last Name
       %th Email
-      %th
+      %th.mobile-hide
   %tbody
     - @users.each do |user|
       - unless user.role == 'superadmin' && current_user.role == 'admin'
-        %tr
-          %td= image_tag avatar_url(user), class: "circle"
-          %td= user.first_name
-          %td= user.last_name
-          %td= user.email
-          %td
-            = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
-              %i.material-icons edit
-            - if current_user && (current_user.id == user.id)
-              %btn.btn.disabled
-                %i.material-icons delete_forever
-            - else
-              = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
-                %i.material-icons delete_forever
-
+        = link_to edit_user_path(user) do
+          %tr{"data-link" => edit_user_path(user)}
+            %td= image_tag avatar_url(user), class: "circle"
+            %td= user.first_name
+            %td= user.last_name
+            %td= user.email
+            %td.mobile-hide
+              /= link_to edit_user_path(user), class: "waves-effect waves-light btn" do
+              /  %i.material-icons edit
+              - if current_user && (current_user.id == user.id)
+                %btn.btn.disabled
+                  %i.material-icons delete_forever
+              - else
+                = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
+                  %i.material-icons delete_forever
