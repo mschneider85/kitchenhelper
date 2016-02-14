@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users, except: :show
+  resources :users#, except: :show
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"

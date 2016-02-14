@@ -4,9 +4,9 @@
 
 %ul#user-options.dropdown-content
   %li
-    %a{href: "#"}
+    = link_to user_path(current_user) do
       %i.material-icons.left settings
-      Settings
+      Profile
   %li
     %a{href: "#"}
       %i.material-icons.left info

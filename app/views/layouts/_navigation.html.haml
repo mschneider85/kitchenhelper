@@ -6,7 +6,7 @@
   %ul.right.hide-on-med-and-down
     %li#welcome.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Dashboard"}
       = link_to '/' do
-        %i.material-icons view_module
+        %i.material-icons home
     - if can?(:read, User)
       %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Users"}
         = link_to users_path do
@@ -20,7 +20,7 @@
   %ul#nav-mobile.side-nav
     %li
       = link_to '/' do
-        %i.material-icons view_module
+        %i.material-icons home
     - if can?(:read, User)
       %li#users
         = link_to 'Users', users_path

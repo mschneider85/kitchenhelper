@@ -31,19 +31,13 @@ main {
   flex: 1 0 auto;
 }
 
-.nav-up {
-  margin-top: -64px;
-}
-
 .error-block {
   font-size: 0.8rem;
 }
+nav#breadcrumb {
+  padding-left: 20px;
+}
 
-
-@media only screen
-  and (min-device-width : 320px)
-  and (max-device-width : 480px) {
-  .mobile-hide {
-    display: none
-  }
+main {
+  overflow: auto;
 }

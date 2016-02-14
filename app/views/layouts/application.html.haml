@@ -13,10 +13,12 @@
       .navbar-fixed
         %nav.red{role: "navigation"}
           = render 'layouts/navigation'
+      %nav#breadcrumb.grey.lighten-1.z-depth-0
+        .nav-wrapper
+          .col.s12
+            = render_breadcrumbs separator: '', tag: "span class='breadcrumb'"
       .container
         .section
-          .mobile-hide
-            = render_breadcrumbs
           = render 'layouts/flash_messages'
           = yield
     %footer.teal.lighten-2.page-footer.white-text

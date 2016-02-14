@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   load_and_authorize_resource param_method: [:user_params, :user_password_params]
-  before_action :load_user, only: [:edit, :update, :destroy]
+  before_action :load_user, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'Users', :users_path
   add_breadcrumb 'Create', :new_user_path, only: [:new, :create]
+  add_breadcrumb 'Edit', '', :only => [:edit, :update]
+  add_breadcrumb 'Profile', '', :only => [:show]
 
   def index
     @users = User.all
+  end
+
+  def show
   end
 
   def new
