@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   private
 
   def set_default_role
-    self.roles << Role.find_by(name: :registered)
+    self.roles << Role.find_by(name: :registered) if self.roles.empty?
   end
 
 end

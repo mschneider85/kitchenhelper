@@ -8,6 +8,4 @@
 ['registered', 'banned', 'moderator', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
-u = User.create(first_name: 'Martin', last_name: 'Schneider', email: 'mschneider85@gmx.de', password: 'changeme')
-u.roles << Role.find_by(name: 'admin')
-u.save
+User.create(first_name: 'Martin', last_name: 'Schneider', email: 'mschneider85@gmx.de', password: 'changeme')
