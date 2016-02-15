@@ -1,7 +1,6 @@
 %p
   = link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light red" do
     %i.material-icons add
-
 %table.responsive-table.striped#users
   %thead
     %tr.hide-on-small-only
@@ -12,7 +11,7 @@
       %th
   %tbody
     - @users.each do |user|
-      - unless user.role == 'superadmin' && current_user.role == 'admin'
+      - unless user.has_role?(:superadmin) && current_user.has_role?(:admin)
         = link_to edit_user_path(user) do
           %tr
             %td{"data-link" => user_path(user)}= image_tag avatar_url(user), class: 'circle'

@@ -17,7 +17,7 @@
       %td= @user.email
     %tr
       %th Role
-      %td= @user.role.name.humanize
+      %td= @user.roles.map{ |role| role.name.humanize }.join(', ')
 .divider
 .section
   = link_to users_path, class: 'waves-effect waves-light btn' do
