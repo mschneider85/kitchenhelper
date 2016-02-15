@@ -63,6 +63,15 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :span, class: 'help-block' }
   end
 
+  config.wrappers :material_boolean, tag: 'p', class: 'boolean' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :input, error_class: 'invalid'
+    b.use :label
+    b.use :error, wrap_with: { tag: :span, class: 'error-block red-text text-darken-2' }
+    b.use :hint,  wrap_with: { tag: :span, class: 'help-block' }
+  end
+
   config.error_notification_class = 'error-notification card-panel red lighten-4 red-text text-darken-2'
   config.button_class = 'btn waves-effect waves-light'
   config.boolean_label_class = nil
@@ -75,7 +84,7 @@ SimpleForm.setup do |config|
   #   inline: input + label
   #   nested: label > input
 
-  config.boolean_style = :nested
+  config.boolean_style = :inline
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.

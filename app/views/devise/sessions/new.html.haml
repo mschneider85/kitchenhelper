@@ -1,10 +1,11 @@
-%h2 Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-inputs
     = f.input :email, required: false, autofocus: true
     = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    = f.input :remember_me, as: :boolean, wrapper: :material_boolean if devise_mapping.rememberable?
   .form-actions
+    .divider
+    .section
     = button_tag(type: :submit, class: "waves-effect waves-light btn") do
       Log in
 = render "devise/shared/links"

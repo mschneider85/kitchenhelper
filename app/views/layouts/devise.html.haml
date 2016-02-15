@@ -9,15 +9,16 @@
     = csrf_meta_tags
     = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
   %body
-    %main
-      .navbar-fixed
-        %nav.red{role: "navigation"}
-          = render 'layouts/navigation'
-      = render 'layouts/flash_messages'
-      = yield
-      %footer.grey.page-footer
-        .footer-copyright.white.black-text.text-lighten-4
-          .container
-            © 2016 kitchenhelper!
-            %a.right{:href => "mailto:mschneider85@gmx.de"} mschneider85@gmx.de
-      =render "shared/login"
+    %main.red.valign-wrapper
+      .container
+        .row
+          .col.s12.m6.offset-m3
+            %h4.white-text.center-align kitchenhelper!
+            .card-panel.white.z-depth-5
+              %span.grey-text
+                = render 'layouts/flash_messages'
+                = yield
+  .footer-copyright.white.black-text.text-lighten-4
+    .container
+      © 2016 kitchenhelper!
+      %a.right{:href => "mailto:mschneider85@gmx.de"} mschneider85@gmx.de
