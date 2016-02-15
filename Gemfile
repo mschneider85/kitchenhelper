@@ -58,3 +58,4 @@ group :development do
   gem 'meta_request'
   gem 'spring'
 end
+gem 'rails_12factor', group: :production
