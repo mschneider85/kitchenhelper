@@ -15,7 +15,7 @@
         .col.s12= f.input :password_confirmation, required: true
       - if can?(:manage, :user) && action_name == 'edit'
         .row
-          .col.s12= f.association :role, collection: Role.all
+          .col.s12= f.association :roles, collection: Role.all.map{ |role| [role.name.humanize, role.id] }
   .divider
   .section
     .form-actions
