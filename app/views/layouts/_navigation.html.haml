@@ -11,6 +11,10 @@
       %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Users"}
         = link_to users_path do
           %i.material-icons people
+    - if can?(:manage, :role)
+      %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Roles"}
+        = link_to roles_path do
+          %i.material-icons group_work
     - if user_signed_in?
       %li
         = render 'layouts/user_options'
@@ -20,16 +24,28 @@
   %ul#nav-mobile.side-nav
     %li
       = link_to '/' do
-        %i.material-icons home
+        %i.material-icons.left home
+        Home
     - if can?(:read, User)
       %li#users
-        = link_to 'Users', users_path
+        = link_to users_path do
+          %i.material-icons.left people
+          Users
+    - if can?(:manage, :role)
+      %li#roles
+        = link_to roles_path do
+          %i.material-icons.left group_work
+          Roles
     - if user_signed_in?
       %li
-        = link_to 'Logout', logout_path, method: :delete
+        = link_to logout_path, method: :delete do
+          %i.material-icons.left power_settings_new
+          Logout
     - else
       %li
-        = link_to 'Login', login_path
+        = link_to login_path do
+          %i.material-icons.left power_settings_new
+          Login
 
 :coffee
   $(document).ready ->

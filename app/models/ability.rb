@@ -7,7 +7,7 @@ class Ability
     if user.has_role? :registered
         can :manage, User, id: user.id
     end
-    if user.has_role? :admin
+    if user.has_role? :superadmin
         can :manage, :all
     end
     # Define abilities for the passed in user here. For example:

@@ -17,10 +17,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.disabled {
-   cursor: not-allowed !important;
-}
-
 body {
   display: flex;
   min-height: 100vh;
@@ -29,6 +25,10 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.disabled {
+   cursor: not-allowed !important;
 }
 
 .error-block {
@@ -41,4 +41,19 @@ nav#breadcrumb {
 
 td {
   word-break: break-all;
+}
+
+span.badge-count {
+  padding: 5px 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #F44336;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+}
+
+span.badge-count:before {
+  content: " ×";
 }

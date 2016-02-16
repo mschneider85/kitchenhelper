@@ -7,12 +7,18 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
 
+  scope :find_by_role_id, ->(role_id) { includes(:roles).where("roles_users.role_id": role_id).order(:last_name) }
+
   def name
     "#{first_name} #{last_name}"
   end
 
   def has_role?(role_sym = false)
     role_sym ? roles.any? { |r| r.name.underscore.to_sym == role_sym } : roles.count > 0
+  end
+
+  def has_not_role?(role_sym)
+    !roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
   private

@@ -1,0 +1,18 @@
+%p
+  = link_to new_role_path, class: "btn-floating btn-large waves-effect waves-light red" do
+    %i.material-icons add
+%table.striped#roles
+  %thead
+    %tr.hide-on-small-only
+      %th Role
+      %th
+  %tbody
+    - @roles.each do |role|
+      %tr
+        %td
+          = role.name.humanize
+          %span.badge-count.tooltipped{"data-position" => "right", "data-tooltip" => User.find_by_role_id(role.id).map{ |user| user.name }.join(', ')}
+            = User.find_by_role_id(role.id).count
+        %td.right-align
+          = link_to role_path(role), method: :delete, data: { confirm: 'Delete Role?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
+            %i.material-icons delete_forever
