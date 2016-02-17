@@ -36,6 +36,7 @@
         = link_to roles_path do
           %i.material-icons.left group_work
           = t('models.role', count: 2)
+      .divider
     - if user_signed_in?
       %li
         = link_to logout_path, method: :delete do

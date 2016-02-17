@@ -39,6 +39,10 @@ en:
     cancel: cancel
     create: create
     required: required
+    created: "%{model} created."
+    updated: "%{model} updated."
+    deleted: "%{model} deleted."
+    cant_delete_self: You can't delete yourself.
 #Paths
   paths:
     dashboard: dashboard

@@ -18,6 +18,10 @@ de:
     cancel: abbrechen
     create: erstellen
     required: erforderlich
+    created: "%{model} erstellt."
+    updated: "%{model} aktualisiert."
+    deleted: "%{model} gelöscht."
+    cant_delete_self: Du kannst dich nicht selbst löschen.
 #Paths
   paths:
     dashboard: Übersichtsseite

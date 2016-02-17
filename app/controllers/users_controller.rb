@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.attributes = user_password_params
     if @user.save
-      redirect_to users_path, notice: t('messages.created', model: @user.name)
+      redirect_to users_path, notice: t('actions.created', model: @user.name)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def update
     @user.attributes = user_password_params unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
     if @user.update(user_params)
-      redirect_to users_path, notice: t('messages.updated', model: @user.name)
+      redirect_to users_path, notice: t('actions.updated', model: @user.name)
     else
       render :edit
     end
@@ -44,9 +44,9 @@ class UsersController < ApplicationController
   def destroy
     unless @user == current_user
       @user.destroy
-      redirect_to users_path, notice: t('messages.deleted', model: @user.name)
+      redirect_to users_path, notice: t('actions.deleted', model: @user.name)
     else
-      redirect_to users_path, alert: t('messages.cant_delete_self')
+      redirect_to users_path, alert: t('actions.cant_delete_self')
     end
   end
 

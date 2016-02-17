@@ -17,7 +17,7 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_attributes)
     if @role.save
-      redirect_to roles_path, notice: t('messages.created', model: @role.name)
+      redirect_to roles_path, notice: t('actions.created', model: @role.name)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class RolesController < ApplicationController
 
   def update
     if @role.update(role_attributes)
-      redirect_to roles_path, notice: t('messages.updated', model: @role.name)
+      redirect_to roles_path, notice: t('actions.updated', model: @role.name)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class RolesController < ApplicationController
 
   def destroy
     @role.destroy
-    redirect_to roles_path, notice: t('messages.deleted', model: @role.name)
+    redirect_to roles_path, notice: t('actions.deleted', model: @role.name)
   end
 
 private
