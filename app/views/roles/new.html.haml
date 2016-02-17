@@ -7,9 +7,11 @@
           .row
             .col.s12= f.input :name
   .divider
+  %small.grey-text
+    = '* ' + t('actions.required')
   .section
     .form-actions
       = link_to roles_path, class: 'waves-effect waves-light btn' do
-        = t('buttons.back')
+        = t('actions.back')
       = button_tag(type: "submit", class: "waves-effect waves-light btn") do
-        = t('buttons.save')
+        = t('actions.save')

@@ -3,16 +3,16 @@ class UsersController < ApplicationController
 
   before_action :load_user, only: [:show, :edit, :update, :destroy]
 
-  add_breadcrumb 'Users', :users_path
-  add_breadcrumb 'Create', :new_user_path, only: [:new, :create]
-  add_breadcrumb 'Edit', '', :only => [:edit, :update]
-  add_breadcrumb 'Profile', '', :only => [:show]
+  add_breadcrumb I18n.t('models.user', count: User.count).titleize, :users_path
+  add_breadcrumb I18n.t('actions.create').titleize, :new_user_path, only: [:new, :create]
+  add_breadcrumb I18n.t('actions.edit').titleize, '', only: [:edit, :update]
 
   def index
     @users = User.all
   end
 
   def show
+    @user == @current_user ? (add_breadcrumb I18n.t('paths.profile'), '') : (add_breadcrumb @user.name, '')
   end
 
   def new

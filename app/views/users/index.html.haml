@@ -5,9 +5,9 @@
   %thead
     %tr.hide-on-small-only
       %th Avatar
-      %th First Name
-      %th Last Name
-      %th Email
+      %th= User.human_attribute_name(:first_name)
+      %th= User.human_attribute_name(:last_name)
+      %th= User.human_attribute_name(:email)
       %th
   %tbody
     - @users.each do |user|
@@ -24,5 +24,5 @@
               %btn.btn.disabled
                 %i.material-icons delete_forever
             - else
-              = link_to user_path(user), method: :delete, data: { confirm: 'Delete User?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
+              = link_to user_path(user), method: :delete, data: { confirm: t('actions.confirm_delete', model: user.name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn' do
                 %i.material-icons delete_forever

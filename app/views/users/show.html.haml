@@ -10,17 +10,17 @@
       %td
         = link_to "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", target: '_blank'
     %tr
-      %th Name
+      %th= User.human_attribute_name(:name)
       %td= @user.name
     %tr
-      %th Email
+      %th= User.human_attribute_name(:email)
       %td= @user.email
     %tr
-      %th Role
+      %th= t('models.role', count: @user.roles.length)
       %td= @user.roles.map{ |role| role.name.humanize }.join(', ')
 .divider
 .section
   = link_to users_path, class: 'waves-effect waves-light btn' do
-    Back
+    = t('actions.back')
   = link_to edit_user_path(@user), class: 'waves-effect waves-light btn' do
-    Edit
+    = t('actions.edit')

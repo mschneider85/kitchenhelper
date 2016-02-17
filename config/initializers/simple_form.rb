@@ -72,7 +72,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :span, class: 'help-block' }
   end
 
-  config.error_notification_class = 'error-notification card-panel red lighten-4 red-text text-darken-2'
+  config.error_notification_class = 'error-notification chip red-text'
   config.button_class = 'btn waves-effect waves-light'
   config.boolean_label_class = nil
 

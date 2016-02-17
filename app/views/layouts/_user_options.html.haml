@@ -6,11 +6,11 @@
   %li
     = link_to user_path(current_user) do
       %i.material-icons.left settings
-      Profile
+      = t('paths.profile', count: 2)
   %li
     %a{href: "#"}
       %i.material-icons.left info
-      Info
+      = t('paths.info', count: 2)
   %li.divider
   %li
     = link_to logout_path, method: :delete do

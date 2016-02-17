@@ -20,4 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+#Models
+  models:
+    user:
+      one: user
+      other: users
+    role:
+      one: role
+      other: roles
+#Actions
+  actions:
+    getstarted: get started
+    back: back
+    save: save
+    edit: edit
+    confirm_delete: "Delete '%{model}'?"
+    delete: delete
+    cancel: cancel
+    create: create
+    required: required
+#Paths
+  paths:
+    dashboard: dashboard
+    profile: profile

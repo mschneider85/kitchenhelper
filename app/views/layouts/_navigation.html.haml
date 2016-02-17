@@ -4,15 +4,15 @@
   %a.button-collapse{'data-activates' => 'nav-mobile', href: '#'}
     %i.material-icons menu
   %ul.right.hide-on-med-and-down
-    %li#welcome.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Dashboard"}
+    %li#welcome.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => t('paths.dashboard').titleize}
       = link_to '/' do
         %i.material-icons home
     - if can?(:read, User)
-      %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Users"}
+      %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => t('models.user', count: 2).titleize}
         = link_to users_path do
           %i.material-icons people
     - if can?(:manage, :role)
-      %li#users.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => "Roles"}
+      %li#roles.tooltipped{"data-delay" => "500", "data-position" => "bottom", "data-tooltip" => t('models.role', count: 2).titleize}
         = link_to roles_path do
           %i.material-icons group_work
     - if user_signed_in?
@@ -25,17 +25,17 @@
     %li
       = link_to '/' do
         %i.material-icons.left home
-        Home
+        = t('paths.dashboard')
     - if can?(:read, User)
       %li#users
         = link_to users_path do
           %i.material-icons.left people
-          Users
+          = t('models.user', count: 2)
     - if can?(:manage, :role)
       %li#roles
         = link_to roles_path do
           %i.material-icons.left group_work
-          Roles
+          = t('models.role', count: 2)
     - if user_signed_in?
       %li
         = link_to logout_path, method: :delete do

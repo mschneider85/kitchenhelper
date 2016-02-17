@@ -43,6 +43,7 @@ gem 'filterrific'
 gem 'breadcrumbs_on_rails'
 
 gem 'devise'
+gem 'devise-i18n-views'
 gem 'cancancan'
 
 group :development, :test do

@@ -4,7 +4,7 @@
 %table.striped#roles
   %thead
     %tr.hide-on-small-only
-      %th Role
+      %th= Role.human_attribute_name(:name)
       %th
   %tbody
     - @roles.each do |role|
@@ -14,5 +14,5 @@
           %span.badge-count.tooltipped{"data-position" => "right", "data-tooltip" => User.find_by_role_id(role.id).map{ |user| user.name }.join(', ')}
             = User.find_by_role_id(role.id).count
         %td.right-align
-          = link_to role_path(role), method: :delete, data: { confirm: 'Delete Role?', commit: 'Delete', cancel: 'Cancel' }, class: 'waves-effect waves-light btn' do
+          = link_to role_path(role), method: :delete, data: { confirm: t('actions.confirm_delete', model: role.name.humanize), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn' do
             %i.material-icons delete_forever

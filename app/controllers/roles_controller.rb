@@ -3,8 +3,8 @@ class RolesController < ApplicationController
 
   before_action :load_role, only: [:edit, :update, :destroy]
 
-  add_breadcrumb 'Roles', :roles_path
-  add_breadcrumb 'Create', :new_role_path, only: [:new, :create]
+  add_breadcrumb I18n.t('models.role', count: Role.count).titleize, :roles_path
+  add_breadcrumb I18n.t('actions.create').titleize, :new_role_path, only: [:new, :create]
 
   def index
     @roles = Role.all
