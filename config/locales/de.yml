@@ -23,6 +23,7 @@ de:
     deleted: "%{model} gelöscht."
     cant_delete_self: Du kannst dich nicht selbst löschen.
     no_account: Du hast noch keinen Account?
+    account: Du hast bereits einen Account?
     add_name: Fast geschafft! Zur Vervollständigung deiner Daten musst du deinen Namen angeben.
 #Paths
   paths:

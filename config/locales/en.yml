@@ -44,6 +44,7 @@ en:
     deleted: "%{model} deleted."
     cant_delete_self: You can't delete yourself.
     no_account: Don't have an account yet?
+    account: You have an account?
     add_name: Almost there! To complete your data you need to specify your name.
 #Paths
   paths:
