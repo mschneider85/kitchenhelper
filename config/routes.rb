@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
+    get "/sign_up" => "devise/registrations#new"
   end
   resources :roles, except: :show
 

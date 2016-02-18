@@ -10,9 +10,9 @@
       .row
         .col.s12= f.input :email, required: true
       .row
-        .col.s12= f.input :password, autocomplete: "off", required: true
+        .col.s12= f.input :password, autocomplete: "off"
       .row
-        .col.s12= f.input :password_confirmation, required: true
+        .col.s12= f.input :password_confirmation
       - if can?(:manage, :user) && action_name == 'edit'
         .row
           .col.s12= f.association :roles, collection: Role.all.map{ |role| [role.name.humanize, role.id] }

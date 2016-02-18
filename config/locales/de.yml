@@ -22,11 +22,14 @@ de:
     updated: "%{model} aktualisiert."
     deleted: "%{model} gelöscht."
     cant_delete_self: Du kannst dich nicht selbst löschen.
+    no_account: Du hast noch keinen Account?
+    add_name: Fast geschafft! Zur Vervollständigung deiner Daten musst du deinen Namen angeben.
 #Paths
   paths:
     dashboard: Übersichtsseite
     profile: Profil
     info: Info
+    account: Account
   activerecord:
 #Attributes
     attributes:

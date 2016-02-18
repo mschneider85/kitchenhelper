@@ -7,5 +7,6 @@
     .divider
     .section
     = button_tag(type: :submit, class: "waves-effect waves-light btn") do
-      Log in
-= render "devise/shared/links"
+      = t('.sign_in', :default => "Log in")
+%small
+  = render "devise/shared/links"

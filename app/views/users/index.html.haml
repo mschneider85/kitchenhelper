@@ -11,7 +11,7 @@
       %th
   %tbody
     - @users.each do |user|
-      - unless user.has_role?(:superadmin) && current_user.has_not_role?(:superadmin)
+      - unless user.has_role?(:superadmin) && !current_user.has_role?(:superadmin)
         %tr
           %td{"data-link" => user_path(user)}= image_tag avatar_url(user), class: 'circle'
           %td{"data-link" => user_path(user)}= user.first_name
