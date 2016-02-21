@@ -44,6 +44,11 @@ de:
         name: Name
 #Default I18n
     errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              file_size_is_less_than: 'muss kleiner als %{count} sein'
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
         restrict_dependent_destroy:

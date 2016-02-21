@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hhqjxhphs
+  api_key: '859946745769882'
+  api_secret: upa365y9OAswyXAWRLpbPsq1wZY
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hhqjxhphs
+  api_key: '859946745769882'
+  api_secret: upa365y9OAswyXAWRLpbPsq1wZY
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hhqjxhphs
+  api_key: '859946745769882'
+  api_secret: upa365y9OAswyXAWRLpbPsq1wZY
+  enhance_image_tag: true
+  static_image_support: false

@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   def update
     @user.attributes = user_password_params unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
     if @user.update(user_params)
+      FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/uploads/*")
       redirect_to users_path, notice: t('actions.updated', model: @user.name)
     else
       render :edit
