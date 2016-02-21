@@ -52,3 +52,11 @@ en:
     profile: profile
     info: info
     account: account
+  activerecord:
+#Default I18n
+    errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              file_size_is_less_than: 'has to be smaller than %{count}'

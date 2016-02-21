@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :validatable, :trackable, :registerable
 
   validates :first_name, :last_name, presence: true, on: :update
-  #validates :logo, file_size: { maximum: 1.megabytes.to_i }
+  validates :avatar, file_size: { less_than: 1.megabytes }
   validates_integrity_of :avatar
 
   scope :find_by_role_id, ->(role_id) { includes(:roles).where("roles_users.role_id": role_id).order(:last_name) }

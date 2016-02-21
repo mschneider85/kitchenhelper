@@ -42,8 +42,9 @@ gem 'kaminari'
 gem 'filterrific'
 gem 'breadcrumbs_on_rails'
 
-gem 'rmagick'
 gem 'carrierwave'
+gem 'cloudinary'
+gem 'file_validators'
 
 gem 'devise'
 gem 'devise-i18n-views'
