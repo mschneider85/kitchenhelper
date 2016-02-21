@@ -49,11 +49,6 @@ GEM
     byebug (8.2.2)
     callsite (0.0.11)
     cancancan (1.13.1)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -171,7 +166,6 @@ GEM
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    rmagick (2.15.4)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     sass (3.4.21)
@@ -226,7 +220,6 @@ DEPENDENCIES
   breadcrumbs_on_rails
   byebug
   cancancan
-  carrierwave
   coffee-rails (~> 4.1.0)
   devise
   devise-i18n-views
@@ -243,7 +236,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.5.1)
   rails_12factor
-  rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form

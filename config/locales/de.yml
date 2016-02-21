@@ -45,7 +45,6 @@ de:
 #Default I18n
     errors:
       messages:
-        extension_white_list_error: Hello
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
         restrict_dependent_destroy:
           has_one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz

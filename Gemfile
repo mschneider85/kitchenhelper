@@ -42,9 +42,6 @@ gem 'kaminari'
 gem 'filterrific'
 gem 'breadcrumbs_on_rails'
 
-gem 'rmagick'
-gem 'carrierwave'
-
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'cancancan'
