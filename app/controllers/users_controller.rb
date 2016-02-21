@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    byebug
+    @user.attributes = user_password_params
     if @user.save
       redirect_to users_path, notice: t('actions.created', model: @user.name)
     else
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
 
   def update
     @user.attributes = user_password_params unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-    @error = @user.errors.full_messages
     if @user.update(user_params)
       FileUtils.rm_rf Dir.glob("#{Rails.root}/tmp/uploads/*")
       redirect_to users_path, notice: t('actions.updated', model: @user.name)
@@ -59,7 +58,7 @@ private
   end
 
   def user_params
-   params.require(:user).permit(:email, :first_name, :last_name, :avatar, :avatar_cache, :remove_avatar, role_ids:[])
+   params.require(:user).permit(:email, :first_name, :last_name, role_ids:[])
   end
 
   def user_password_params

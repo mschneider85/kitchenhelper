@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   before_validation :set_default_role
-  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :trackable, :lockable, :recoverable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :trackable, :registerable
