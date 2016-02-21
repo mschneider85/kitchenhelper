@@ -13,7 +13,7 @@
     - @users.each do |user|
       - unless user.has_role?(:superadmin) && !current_user.has_role?(:superadmin)
         %tr
-          %td{"data-link" => user_path(user)}= image_tag avatar_url(user), class: 'circle'
+          %td{"data-link" => user_path(user)}= image_tag avatar_url(user), class: 'circle', size: '48'
           %td{"data-link" => user_path(user)}= user.first_name
           %td{"data-link" => user_path(user)}= user.last_name
           %td{"data-link" => user_path(user)}= user.email

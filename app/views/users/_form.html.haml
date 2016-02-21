@@ -16,6 +16,26 @@
       - if can?(:manage, :user) && action_name == 'edit'
         .row
           .col.s12= f.association :roles, collection: Role.all.map{ |role| [role.name.humanize, role.id] }
+      %blockquote
+        %label Avatar
+        .row.upload-container.section.grey.lighten-4
+          .col.s12.l6
+            - if @user.avatar.url.present?
+              = image_tag(@user.avatar.url, size: '80', id: 'old_avatar')
+            %img#img_prev.img-thumbnail.hide{ alt: "Preview", height: "80", src: "#", width: "80" }
+            = f.input :remove_avatar, as: :boolean, wrapper: :material_boolean
+          .col.s12.l6#upload-file
+            .divider
+            %div{ class: '#' }
+              .file-field.input-field.avatar
+                %btn.btn.white.teal-text.waves-effect
+                  %i.material-icons.left file_upload
+                  Upload
+                  = f.input_field :avatar, id: 'avatar-upload'
+                  = f.hidden_field :avatar_cache
+                %input.file-path{ type: 'text', disabled: 'disabled' }
+                %span.error-block.red-text.text-darken-2
+                  = @user.errors.full_messages_for(:avatar).last
   .divider
   %small.grey-text
     = '* ' + t('actions.required')
@@ -25,3 +45,22 @@
         = t('actions.back')
       = button_tag(type: "submit", class: "waves-effect waves-light btn") do
         = t('actions.save')
+
+:coffee
+  $('#user_remove_avatar').change ->
+    $('#upload-file').toggleClass('hide')
+    if $('input.file-path').val()
+      $('#img_prev').toggleClass 'hide'
+    $('.upload-container').toggleClass('red')
+    $('.upload-container').toggleClass('grey')
+  $ ->
+  readURL = (input) ->
+    if input.files and input.files[0]
+      reader = new FileReader
+      reader.onload = (e) ->
+        $('#img_prev').attr 'src', e.target.result
+      reader.readAsDataURL input.files[0]
+  $('#avatar-upload').change ->
+    $('#img_prev').removeClass 'hide'
+    readURL this
+    $('#old_avatar').addClass('hide')

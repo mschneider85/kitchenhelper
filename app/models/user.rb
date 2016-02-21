@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   before_validation :set_default_role
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :trackable, :lockable, :recoverable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :trackable, :registerable
 
   validates :first_name, :last_name, presence: true, on: :update
+  #validates :logo, file_size: { maximum: 1.megabytes.to_i }
+  validates_integrity_of :avatar
 
   scope :find_by_role_id, ->(role_id) { includes(:roles).where("roles_users.role_id": role_id).order(:last_name) }
 
