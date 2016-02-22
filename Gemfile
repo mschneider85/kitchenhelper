@@ -62,5 +62,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'spring'
+  gem 'rails_real_favicon'
 end
 gem 'rails_12factor', group: :production
