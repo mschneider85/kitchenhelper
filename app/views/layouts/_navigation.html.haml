@@ -26,6 +26,11 @@
       = link_to '/' do
         %i.material-icons.left home
         = t('paths.dashboard')
+    %li
+      - if user_signed_in?
+        = link_to user_path(current_user) do
+          %i.material-icons.left person
+          = t('paths.profile', count: 1)
     - if can?(:read, User)
       %li#users
         = link_to users_path do

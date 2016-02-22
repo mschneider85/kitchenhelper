@@ -32,12 +32,15 @@
             %a{:href => "https://github.com/mschneider85/kitchenhelper"}github
             and help making this the most advanced recipe database ever. kitchenhelper!
           .card-action
-            %a{:href => "#"} Link
-            %a{:href => "#"} Link
-    .col.s12.m4
-      .login
-        =render "shared/login"
-    .section
+            %a
+              %iframe{frameborder: "0", height: "20px", :scrolling => "0", src: "https://ghbtns.com/github-btn.html?user=mschneider85&repo=kitchenhelper&type=fork", width: "53px"}
+            %a
+              %iframe{frameborder: "0", height: "20px", :scrolling => "0", src: "https://ghbtns.com/github-btn.html?user=mschneider85&repo=kitchenhelper&type=star", width: "53px"}
+.col.s12
+  #transition-placeholder
+  .col.s12.m4
+    .login
+      =render "shared/login"
 
 :coffee
   $(document).ready ->
