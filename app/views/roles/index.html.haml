@@ -1,18 +1,21 @@
-%p
+.fixed-action-btn
   = link_to new_role_path, class: "btn-floating btn-large waves-effect waves-light red" do
     %i.material-icons add
-%table.striped#roles
-  %thead
-    %tr.hide-on-small-only
-      %th= Role.human_attribute_name(:name)
-      %th
-  %tbody
-    - @roles.each do |role|
-      %tr
-        %td
+%ul.collapsible.popout{'data-collapsible' => 'accordion'}
+  - @roles.each do |role|
+    %li
+      .collapsible-header
+        %div
           = role.name.humanize
-          %span.badge-count.tooltipped{"data-position" => "right", "data-tooltip" => User.find_by_role_id(role.id).map{ |user| user.name }.join(', ')}
+          %span.badge-count
             = User.find_by_role_id(role.id).count
-        %td.right-align
-          = link_to role_path(role), method: :delete, data: { confirm: t('actions.confirm_delete', model: role.name.humanize), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn' do
+          = link_to role_path(role), method: :delete, data: { confirm: t('actions.confirm_delete', model: role.name.humanize), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'secondary-content' do
             %i.material-icons delete_forever
+      .collapsible-body
+        - if User.find_by_role_id(role.id).any?
+          %p
+            = User.find_by_role_id(role.id).map{ |user| user.name }.join(', ')
+
+:coffee
+  $(document).ready ->
+    $('.collapsible').collapsible accordion: false

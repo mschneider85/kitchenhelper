@@ -1,28 +1,37 @@
-%p
+.fixed-action-btn
   = link_to new_user_path, class: "btn-floating btn-large waves-effect waves-light red" do
     %i.material-icons add
-%table.responsive-table.striped#users
-  %thead
-    %tr.hide-on-small-only
-      %th Avatar
-      %th= User.human_attribute_name(:first_name)
-      %th= User.human_attribute_name(:last_name)
-      %th= User.human_attribute_name(:email)
-      %th
-  %tbody
-    - @users.each do |user|
-      - unless user.has_role?(:superadmin) && !current_user.has_role?(:superadmin)
-        %tr
-          %td{"data-link" => user_path(user)}= image_tag avatar_url(user), class: 'circle', size: '48x48'
-          %td{"data-link" => user_path(user)}= user.first_name
-          %td{"data-link" => user_path(user)}= user.last_name
-          %td{"data-link" => user_path(user)}= user.email
-          %td.hide-on-small-only.right-align
-            = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
-              %i.material-icons edit
-            - if current_user && (current_user.id == user.id)
-              %btn.btn.disabled
-                %i.material-icons delete_forever
-            - else
-              = link_to user_path(user), method: :delete, data: { confirm: t('actions.confirm_delete', model: user.name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn' do
-                %i.material-icons delete_forever
+%ul.collapsible.popout{'data-collapsible' => 'accordion'}
+  - @users.each do |user|
+    %li
+      .collapsible-header
+        %p.valign-wrapper.collapse-avatar
+          = image_tag avatar_url(user), class: 'avatar circle valign', size: '48x48'
+          &nbsp;
+          = user.name
+      .collapsible-body
+        %p
+          %table.bordered#user
+            %tr
+              %td{colspan: 3}= user.first_name
+            %tr
+              %td{colspan: 3}= user.last_name
+            %tr
+              %td{colspan: 3}= user.email
+            %tr
+              %td.truncate
+                = link_to user_path(user), class: 'waves-effect waves-light btn' do
+                  %i.material-icons remove_red_eye
+
+                = link_to edit_user_path(user), class: "waves-effect waves-light btn" do
+                  %i.material-icons edit
+
+                - if current_user && (current_user.id == user.id)
+                  %btn.btn.disabled
+                    %i.material-icons delete_forever
+                - else
+                  = link_to user_path(user), method: :delete, data: { confirm: t('actions.confirm_delete', model: user.name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn red' do
+                    %i.material-icons delete_forever
+:coffee
+  $(document).ready ->
+    $('.collapsible').collapsible accordion: false
