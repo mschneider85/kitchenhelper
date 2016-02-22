@@ -3,18 +3,19 @@
 
 Requirements:
 
-* ==== Postgresql
-  * [create <tt>config/database.yml</tt>]
-    see <tt>database.yml.example</tt> for further help
-    =====or
-  * [provide <tt>ENV['DATABASE_URL']</tt>]
----
-* ==== Cloudinary Account
-  * [create <tt>config/cloudinary.yml</tt>]
-    see <tt>cloudinary.yml.example</tt> for further help
-    =====or
-  * [provide <tt>ENV['CLOUDINARY_URL']</tt>]
----
-* ==== Populate Credentials + Default Roles
-  * [<tt>rake db:seed</tt>]
----
+==== Postgresql
+[create <tt>config/database.yml</tt>]
+  see <tt>database.yml.example</tt>
+<em>or</em>
+
+provide <tt>ENV['DATABASE_URL']</tt>
+
+==== Cloudinary Account
+[create <tt>config/cloudinary.yml</tt>]
+  see <tt>cloudinary.yml.example</tt>
+<em>or</em>
+
+provide <tt>ENV['CLOUDINARY_URL']</tt>
+
+==== Populate Credentials + Default Roles
+<tt>rake db:seed</tt>
