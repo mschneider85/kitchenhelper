@@ -8,14 +8,10 @@
         %div
           = role.name.humanize
           %span.badge-count
-            = User.find_by_role_id(role.id).count
+            = @users.find_by_role_id(role.id).count
           = link_to role_path(role), method: :delete, data: { confirm: t('actions.confirm_delete', model: role.name.humanize), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'secondary-content' do
             %i.material-icons delete_forever
       .collapsible-body
-        - if User.find_by_role_id(role.id).any?
+        - if @users.find_by_role_id(role.id).any?
           %p
-            = User.find_by_role_id(role.id).map{ |user| user.name }.join(', ')
-
-:coffee
-  $(document).ready ->
-    $('.collapsible').collapsible accordion: false
+            = @users.find_by_role_id(role.id).map{ |user| user.name }.join(', ')

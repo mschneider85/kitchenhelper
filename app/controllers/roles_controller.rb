@@ -8,6 +8,7 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.all
+    @users = User.all
   end
 
   def new

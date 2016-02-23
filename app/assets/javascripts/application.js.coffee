@@ -19,8 +19,12 @@
 #= require _materialize-rails-confirm.coffee
 
 $(document).on 'ready page:change', ->
+  $(".button-collapse").sideNav()
+
   Waves.displayEffect()
   $('select').material_select()
 
   $('div .breadcrumb a').addClass('breadcrumb')
   $('div .breadcrumb a').unwrap()
+
+  $('.collapsible').collapsible accordion: false

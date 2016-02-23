@@ -13,11 +13,11 @@
         %p
           %table.bordered#user
             %tr
-              %td{colspan: 3}= user.first_name
+              %td= user.first_name
             %tr
-              %td{colspan: 3}= user.last_name
+              %td= user.last_name
             %tr
-              %td{colspan: 3}= user.email
+              %td= user.email
             %tr
               %td.truncate
                 = link_to user_path(user), class: 'waves-effect waves-light btn' do
@@ -32,6 +32,3 @@
                 - else
                   = link_to user_path(user), method: :delete, data: { confirm: t('actions.confirm_delete', model: user.name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'waves-effect waves-light btn red' do
                     %i.material-icons delete_forever
-:coffee
-  $(document).ready ->
-    $('.collapsible').collapsible accordion: false
