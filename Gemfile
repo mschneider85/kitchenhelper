@@ -63,5 +63,6 @@ group :development do
   gem 'meta_request'
   gem 'spring'
   gem 'rails_real_favicon'
+  gem 'rails-erd'
 end
 gem 'rails_12factor', group: :production
