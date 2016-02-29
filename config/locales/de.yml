@@ -7,11 +7,18 @@ de:
     role:
       one: Rolle
       other: Rollen
+    category:
+      one: Kategorie
+      other: Kategorien
+    unit:
+      one: Einheit
+      other: Einheiten
 #Actions
   actions:
     getstarted: loslegen
     back: zurück
     save: speichern
+    save_progress: speichern...
     edit: bearbeiten
     confirm_delete: "'%{model}' löschen?"
     delete: löschen
@@ -42,6 +49,12 @@ de:
         roles: Rollen
       role:
         name: Name
+      category:
+        name: Name
+        description: Beschreibung
+      unit:
+        short_name: Abkürzung
+        full_name: Voller Name
 #Default I18n
     errors:
       models:

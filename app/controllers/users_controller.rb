@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    byebug
     if @user.save
       redirect_to users_path, notice: t('actions.created', model: @user.name)
     else

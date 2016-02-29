@@ -14,4 +14,4 @@
       .collapsible-body
         - if @users.find_by_role_id(role.id).any?
           %p
-            = @users.find_by_role_id(role.id).map{ |user| user.name }.join(', ')
+            = @users.find_by_role_id(role.id).map(&:name).join(', ')

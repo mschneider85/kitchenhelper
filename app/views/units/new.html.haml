@@ -1,0 +1,18 @@
+= simple_form_for @unit do |f|
+  = f.error_notification
+  .section
+    .form-inputs
+      .row
+        .col.s12
+          .row
+            .col.s12= f.input :short_name, autofocus: true
+            .col.s12= f.input :full_name
+  .divider
+  %small.grey-text
+    = '* ' + t('actions.required')
+  .section
+    .form-actions
+      = link_to units_path, class: 'waves-effect waves-light btn' do
+        = t('actions.back')
+      = button_tag(type: "submit", class: "waves-effect waves-light btn", data: { disable_with: t('actions.save_progress') }) do
+        = t('actions.save')

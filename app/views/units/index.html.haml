@@ -1,0 +1,12 @@
+.fixed-action-btn
+  = link_to new_unit_path, class: "btn-floating btn-large waves-effect waves-light red" do
+    %i.material-icons add
+%ul.collection.z-depth-1
+  - @units.each do |unit|
+    %li.collection-item
+      %h5.title
+        = unit.short_name
+        = link_to unit_path(unit), method: :delete, data: { confirm: t('actions.confirm_delete', model: unit.full_name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'secondary-content' do
+          %i.material-icons delete_forever
+      %p
+        = unit.full_name
