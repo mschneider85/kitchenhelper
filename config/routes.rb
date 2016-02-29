@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }, except: :create
-  resources :users
+  resources :users do
+    get :following, :followers, on: :member
+  end
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     delete "/logout" => "devise/sessions#destroy"
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   resources :roles, except: [:show, :edit, :update]
   resources :categories, except: [:show, :edit, :update]
   resources :units, except: [:show, :edit, :update]
+  resources :relationships, only: [:create, :destroy]
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

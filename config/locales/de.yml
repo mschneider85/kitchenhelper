@@ -47,6 +47,7 @@ de:
         email: E-Mail
         name: Name
         roles: Rollen
+        remove_avatar: Avatar entfernen
       role:
         name: Name
       category:

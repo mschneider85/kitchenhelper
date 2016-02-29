@@ -1,26 +1,51 @@
 .section
-  .col.s2
-    = image_tag avatar_url(@user), class: "materialboxed", width: "130px"
-  .col.s2
-    %h4
+  .card-panel.teal.white-text.center-align
+    = image_tag avatar_url(@user), class: "circle profile-avatar", width: "150px"
+    %h4.thin
       = @user.name
-  %table.striped
-    %tr
-      %th Avatar
-      %td
-        = link_to "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email.downcase)}.png?s=400&d", target: '_blank'
-    %tr
-      %th= User.human_attribute_name(:name)
-      %td= @user.name
-    %tr
-      %th= User.human_attribute_name(:email)
-      %td= @user.email
-    %tr
-      %th= t('models.role', count: @user.roles.length)
-      %td= @user.roles.map{ |role| role.name.humanize }.join(', ')
-.divider
-.section
-  = link_to users_path, class: 'waves-effect waves-light btn' do
-    = t('actions.back')
-  = link_to edit_user_path(@user), class: 'waves-effect waves-light btn' do
-    = t('actions.edit')
+    %span.light
+      = @user.email
+    %br &nbsp;
+    %br &nbsp;
+    .row
+      .col.s12.m4
+        .divider
+        %p.thin
+          = t('models.role', count: @user.roles.length)
+        %p
+          - @user.roles.each do |role|
+            .chip.teal.lighten-1.white-text
+              %small
+                = role.name.humanize
+
+      .col.s12.m4
+        .divider
+        %p.thin
+          Rezepte
+        %p
+          %table.white-text.bordered
+            %thead
+              %tr
+                %th{data:{field: 'recipes'}} Name
+                %th{data:{field: 'posts'}} Item Name
+            %tbody
+              %tr
+                %td Alvin
+                %td Eclair
+              %tr
+                %td Alan
+                %td Jellybean
+              %tr
+                %td Jonathan
+                %td Lollipop
+      .col.s12.m4
+        #followes
+          = @user.following.count
+        #followers
+          = @user.followers.count
+        = render 'follow_form' if user_signed_in?
+    .divider
+    = link_to users_path, class: 'waves-effect waves-light btn-flat white-text' do
+      = t('actions.back')
+    = link_to edit_user_path(@user), class: 'waves-effect waves-light btn-flat white-text' do
+      = t('actions.edit')

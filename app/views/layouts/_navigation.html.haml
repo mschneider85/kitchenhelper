@@ -11,26 +11,18 @@
       %li#users.tooltipped{data:{delay: '500', position: 'bottom', tooltip: t('models.user', count: 2).titleize}}
         = link_to users_path do
           %i.material-icons people
-          %span.badge.teal.white-text.z-depth-2
-            %small= User.count
     - if can?(:manage, :role)
       %li#roles.tooltipped{data:{delay: '500', position: 'bottom', tooltip: t('models.role', count: 2).titleize}}
         = link_to roles_path do
           %i.material-icons group_work
-          %span.badge.teal.white-text.z-depth-2
-            %small= Role.count
     - if can?(:manage, :category)
       %li#categories.tooltipped{data:{delay: '500', position: 'bottom', tooltip: t('models.category', count: 2).titleize}}
         = link_to categories_path do
           %i.material-icons library_books
-          %span.badge.teal.white-text.z-depth-2
-            %small= Category.count
     - if can?(:manage, :unit)
       %li#units.tooltipped{data:{delay: '500', position: 'bottom', tooltip: t('models.unit', count: 2).titleize}}
         = link_to units_path do
           %i.material-icons perm_data_setting
-          %span.badge.teal.white-text.z-depth-2
-            %small= Unit.count
     - if user_signed_in?
       %li
         = render 'layouts/user_options'
