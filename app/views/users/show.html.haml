@@ -9,7 +9,6 @@
     %br &nbsp;
     .row
       .col.s12.m4
-        .divider
         %p.thin
           = t('models.role', count: @user.roles.length)
         %p
@@ -19,7 +18,6 @@
                 = role.name.humanize
 
       .col.s12.m4
-        .divider
         %p.thin
           Rezepte
         %p
