@@ -37,11 +37,7 @@
                 %td Jonathan
                 %td Lollipop
       .col.s12.m4
-        #followes
-          = @user.following.count
-        #followers
-          = @user.followers.count
-        = render 'follow_form' if user_signed_in?
+        = render 'follow_form'
     .divider
     = link_to users_path, class: 'waves-effect waves-light btn-flat white-text' do
       = t('actions.back')

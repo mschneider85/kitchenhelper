@@ -46,6 +46,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'file_validators'
 
+gem 'acts_as_follower'
+
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'cancancan'

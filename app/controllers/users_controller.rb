@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource param_method: [:user_params, :user_password_params]
 
-  before_action :load_user, only: [:show, :edit, :update, :destroy]
+  before_action :load_user, only: [:show, :edit, :update, :destroy, :follow]
 
   add_breadcrumb I18n.t('models.user', count: User.count).titleize, :users_path
   add_breadcrumb I18n.t('actions.create').titleize, :new_user_path, only: [:new, :create]
@@ -49,6 +49,12 @@ class UsersController < ApplicationController
     else
       redirect_to users_path, alert: t('actions.cant_delete_self')
     end
+  end
+
+  def toggle_follow
+    current_user.following?(@user) ? current_user.stop_following(@user) : current_user.follow(@user)
+    else
+    render layout: false
   end
 
 private
