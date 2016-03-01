@@ -64,5 +64,6 @@ group :development do
   gem 'spring'
   gem 'rails_real_favicon'
   gem 'rails-erd'
+  gem 'traceroute'
 end
 gem 'rails_12factor', group: :production
