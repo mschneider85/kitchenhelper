@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }, except: :create
   resources :users do
-    get :following, :followers, on: :member
+    member do
+      get :toggle_follow
+    end
   end
   devise_scope :user do
     get "/login" => "devise/sessions#new"
