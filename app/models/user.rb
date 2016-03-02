@@ -15,8 +15,6 @@ class User < ActiveRecord::Base
   validates :avatar, file_size: { less_than: 1.megabytes }
   validates_integrity_of :avatar
 
-  scope :find_by_role_id, ->(role_id) { includes(:roles).where("roles_users.role_id": role_id).order(:last_name) }
-
   def name
     "#{first_name} #{last_name}"
   end

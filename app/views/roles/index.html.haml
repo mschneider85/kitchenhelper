@@ -8,10 +8,10 @@
         %div
           = role.name.humanize
           %span.badge-count
-            = @users.find_by_role_id(role.id).count
+            = role.users.count
           = link_to role_path(role), method: :delete, data: { confirm: t('actions.confirm_delete', model: role.name.humanize), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'secondary-content' do
             %i.material-icons delete_forever
       .collapsible-body
-        - if @users.find_by_role_id(role.id).any?
+        - if role.users.present?
           %p
-            = @users.find_by_role_id(role.id).map(&:name).join(', ')
+            = role.users.map(&:name).join(', ')

@@ -5,8 +5,7 @@ class RolesController < ApplicationController
   add_breadcrumb I18n.t('actions.create').titleize, :new_role_path, only: [:new, :create]
 
   def index
-    @roles = Role.all
-    @users = User.all
+    @roles = Role.includes(:users)
   end
 
   def new

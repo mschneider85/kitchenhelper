@@ -67,5 +67,6 @@ group :development do
   gem 'rails_real_favicon'
   gem 'rails-erd'
   gem 'traceroute'
+  gem 'bullet'
 end
 gem 'rails_12factor', group: :production
