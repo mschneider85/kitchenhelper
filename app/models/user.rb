@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     role_sym ? roles.any? { |r| r.name.underscore.to_sym == role_sym } : roles.count > 0
   end
 
+  def friends
+    followers.map{|follower| follower.followed_by?(self) ? follower : nil}.compact
+  end
+
   private
 
   def set_default_role

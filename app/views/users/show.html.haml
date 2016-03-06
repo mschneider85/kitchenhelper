@@ -20,16 +20,24 @@
                   .chip.teal.lighten-1.white-text
                     %small
                       = role.name.humanize
+              %br
+              .divider.hide-on-med-and-up
 
             .col.s12.m6
               %p.thin
-                Follower
-                = render 'follow_form'
+                Freunde
               %p
-                = "-folower-"
+                = render 'friends'
+                %br
+                .divider.hide-on-med-and-up
+              %p.thin
+                Follower
+              %p
+                = render 'followers'
           .divider
           = link_to users_path, class: 'waves-effect waves-light btn-flat white-text' do
             = t('actions.back')
           = link_to edit_user_path(@user), class: 'waves-effect waves-light btn-flat white-text' do
             = t('actions.edit')
+          = render 'follow_form'
 

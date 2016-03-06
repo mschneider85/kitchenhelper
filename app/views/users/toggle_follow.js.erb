@@ -1,0 +1,9 @@
+$(".follow_form[data-user-id='<%= @user.id %>']").replaceWith("<%= j render 'users/follow_form' %>");
+$(".followers").replaceWith("<%= j render 'users/followers' %>");
+$(".friends").replaceWith("<%= j render 'users/friends' %>");
+if ('<%= current_user.following?(@user) %>' == 'true'){
+  Materialize.toast('Du folgst jetzt <%= @user.name %>.', 4000);
+}
+else{
+  Materialize.toast('Du folgst <%= @user.name %> nicht mehr.', 4000);
+}

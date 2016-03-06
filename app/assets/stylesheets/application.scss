@@ -60,3 +60,12 @@ span.badge-count:before {
 .collapse-avatar{
   padding-top: 12px;
 }
+
+span.small-badge{
+  margin: 0 0 0 8px;
+  background-color: gray;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}

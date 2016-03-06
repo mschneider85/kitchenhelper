@@ -53,7 +53,6 @@ class UsersController < ApplicationController
 
   def toggle_follow
     current_user.following?(@user) ? current_user.stop_following(@user) : current_user.follow(@user)
-    else
     render layout: false
   end
 

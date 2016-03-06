@@ -1,0 +1,7 @@
+.friends
+  - if @user.friends.any?
+    - @user.friends.each do |friend|
+      = link_to user_path(friend) do
+        = image_tag avatar_url(friend), class: 'avatar circle profile-avatar-mini tooltipped', size: '48', data: {position: 'bottom', tooltip: friend.name}
+  - else
+    Keine

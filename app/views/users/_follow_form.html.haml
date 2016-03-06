@@ -1,5 +1,4 @@
 - unless current_user == @user
-  .follow_form{data:{user_id: @user.id}}
-    = link_to toggle_follow_user_path(@user), class: 'waves-effect waves-light btn', remote: true do
-      %i.material-icons
-        = current_user.following?(@user) ? 'thumb_down' : 'thumb_up'
+  %span.follow_form{data:{user_id: @user.id}}
+    = link_to toggle_follow_user_path(@user), class: 'waves-effect waves-light btn-flat white-text', remote: true do
+      %i.fa{class: current_user.following?(@user) ? 'fa-user-times' : 'fa-user-plus'}
