@@ -4,6 +4,9 @@
 Requirements:
 
 ==== Postgresql
+
+<tt>apt-get install postgresql libpq-dev pgadmin3</tt>
+
 [create <tt>config/database.yml</tt>]
   see <tt>database.yml.example</tt>
 <em>or</em>

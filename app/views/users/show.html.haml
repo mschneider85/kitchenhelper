@@ -1,45 +1,35 @@
 .section
-  .card-panel.teal.white-text.center-align
-    = image_tag avatar_url(@user), class: "circle profile-avatar", width: "150px"
-    %h4.thin
-      = @user.name
-    %span.light
-      = @user.email
-    %br &nbsp;
-    %br &nbsp;
-    .row
-      .col.s12.m4
-        %p.thin
-          = t('models.role', count: @user.roles.length)
-        %p
-          - @user.roles.each do |role|
-            .chip.teal.lighten-1.white-text
-              %small
-                = role.name.humanize
+  .row
+    .col.s12.m6
+      .card.hoverable
+        .card-title.white.lighten-1.profile-title
+        .card-content.teal.white-text.center-align
+          = image_tag avatar_url(@user), class: "circle profile-avatar z-depth-2", width: "150px"
+          %h4.thin
+            = @user.name
+          %span.light
+            = @user.email
+          %br &nbsp;
+          %br &nbsp;
+          .row
+            .col.s12.m6
+              %p.thin
+                = t('models.role', count: @user.roles.length)
+              %p
+                - @user.roles.each do |role|
+                  .chip.teal.lighten-1.white-text
+                    %small
+                      = role.name.humanize
 
-      .col.s12.m4
-        %p.thin
-          Rezepte
-        %p
-          %table.white-text.bordered
-            %thead
-              %tr
-                %th{data:{field: 'recipes'}} Name
-                %th{data:{field: 'posts'}} Item Name
-            %tbody
-              %tr
-                %td Alvin
-                %td Eclair
-              %tr
-                %td Alan
-                %td Jellybean
-              %tr
-                %td Jonathan
-                %td Lollipop
-      .col.s12.m4
-        = render 'follow_form'
-    .divider
-    = link_to users_path, class: 'waves-effect waves-light btn-flat white-text' do
-      = t('actions.back')
-    = link_to edit_user_path(@user), class: 'waves-effect waves-light btn-flat white-text' do
-      = t('actions.edit')
+            .col.s12.m6
+              %p.thin
+                Follower
+                = render 'follow_form'
+              %p
+                = "-folower-"
+          .divider
+          = link_to users_path, class: 'waves-effect waves-light btn-flat white-text' do
+            = t('actions.back')
+          = link_to edit_user_path(@user), class: 'waves-effect waves-light btn-flat white-text' do
+            = t('actions.edit')
+

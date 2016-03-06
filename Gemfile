@@ -68,5 +68,6 @@ group :development do
   gem 'rails-erd'
   gem 'traceroute'
   gem 'bullet'
+  gem 'rack-mini-profiler'
 end
 gem 'rails_12factor', group: :production
