@@ -13,6 +13,12 @@ de:
     unit:
       one: Einheit
       other: Einheiten
+    recipe:
+      one: Rezept
+      other: Rezepte
+    ingredient:
+      one: Zutat
+      other: Zutaten
 #Actions
   actions:
     getstarted: loslegen
@@ -56,6 +62,17 @@ de:
       unit:
         short_name: Abkürzung
         full_name: Voller Name
+      ingredients_recipe:
+        amount: Menge
+        note: Kommentar
+        ingredient_name: Zutatenname
+      ingredient:
+        name: Name
+      recipe:
+        name: Name
+        duration: Dauer
+        cooking: Zubereitung
+        portions: Portionen
 #Default I18n
     errors:
       models:

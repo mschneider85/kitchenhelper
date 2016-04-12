@@ -44,10 +44,10 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = '192.168.1.0/24'
   config.after_initialize do
     Bullet.enable = true
-    Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
+    Bullet.alert = false
+    Bullet.bullet_logger = false
+    Bullet.console = false
+    Bullet.rails_logger = false
     Bullet.add_footer = true
   end
 end

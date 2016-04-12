@@ -2,6 +2,6 @@
   - if @user.followers.any?
     - @user.followers.each do |follower|
       = link_to user_path(follower) do
-        = image_tag avatar_url(follower), class: 'avatar circle profile-avatar-mini tooltipped', size: '48', data: {position: 'bottom', tooltip: follower.name}
+        = image_tag avatar_url(follower), class: 'avatar circle tooltipped z-depth-1', size: '48', data: {position: 'bottom', tooltip: follower.name}
   - else
     Keine

@@ -15,8 +15,11 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require_tree .
-#= require materialize
+#= require jquery_nested_form
+#= require materialize-sprockets
+#= require materialize/extras/nouislider
 #= require _materialize-rails-confirm.coffee
+#= require tinymce-jquery
 
 $(document).on 'ready page:change', ->
   $(".button-collapse").sideNav()

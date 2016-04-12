@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :roles, except: [:show, :edit, :update]
   resources :categories, except: [:show, :edit, :update]
   resources :units, except: [:show, :edit, :update]
-  resources :relationships, only: [:create, :destroy]
+  resources :recipes
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

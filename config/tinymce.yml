@@ -1,0 +1,22 @@
+toolbar:
+  - h1 | bold italic underline removeformat | bullist numlist |  hr
+plugins:
+  - hr
+menu:
+  none
+language:
+  - de
+height:
+  200px
+browser_spellcheck:
+  true
+setup:
+  function(editor) {
+    editor.on('focus', function(e) {
+      $('.label-tinymce').addClass('active');
+    });
+
+    editor.on('blur', function(e) {
+      $('.label-tinymce').removeClass('active');
+    });
+  }

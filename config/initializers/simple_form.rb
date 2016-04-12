@@ -72,6 +72,14 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :span, class: 'help-block' }
   end
 
+  config.wrappers :associations_error, tag: 'div', class: 'form-group', error_class: 'invalid' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :label, wrap_with: { tag: 'legend', class: 'control-label' }
+    b.use :error, wrap_with: { tag: 'span', class: 'error-block red-text text-darken-2' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
+
   config.error_notification_class = 'error-notification chip red-text'
   config.button_class = 'btn waves-effect waves-light'
   config.boolean_label_class = nil

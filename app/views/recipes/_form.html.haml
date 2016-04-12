@@ -1,0 +1,76 @@
+= simple_nested_form_for @recipe do |f|
+  = f.error_notification
+  .section
+    .form-inputs
+      .row
+        .col.s12
+          .row
+            .col.m10.s12= f.input :name, autofocus: true, required: true
+            .col.m2.s12= f.input :portions
+            .col.m12.s12
+              .input-field.string.cooking
+                = f.label :cooking, class: 'label-tinymce'
+                = f.input :cooking, input_html: {class: 'tinymce'}, label: false
+            .col.s12
+              = f.label :duration
+              .row
+                .col.m3.s5
+                  %label &nbsp;
+                  %br
+                    #time
+                      = "-"
+                .col.m9.s7
+                  = f.input :duration, wrapper_html: {class: 'duration range-field'}, input_html: {value: 0, type: :range, min: 0, max: 120, start: 0}, as: :range, label: false
+          = f.input :ingredients_recipes, wrapper: :associations_error, required: true, label: t('models.ingredient', count: 2)
+          = f.fields_for :ingredients_recipes do |ingredients_recipe|
+            .row
+              .col.m2.s12= ingredients_recipe.input :amount, input_html: {min: 0}
+              .col.m1.s12= ingredients_recipe.input :unit_id, collection: Unit.all.map(&:short_name), label: t('models.unit', count: 1)
+              .col.m4.s12= ingredients_recipe.input :ingredient_name
+              .col.m3.s12= ingredients_recipe.input :note
+              .col.m2.s12
+                = ingredients_recipe.link_to_remove do
+                  %label &nbsp;
+                  %br
+                  = icon('times')
+                  Zutat entfernen
+          = f.link_to_add :ingredients_recipes do
+            %label &nbsp;
+            %br
+            = icon('plus')
+            Zutat hinzufügen
+
+  .divider
+  %small.grey-text
+    = '* ' + t('actions.required')
+  .section
+    .form-actions
+      = link_to recipes_path, class: 'waves-effect waves-light btn' do
+        = t('actions.back')
+      = button_tag(type: "submit", class: "waves-effect waves-light btn", data: { disable_with: t('actions.save_progress') }) do
+        = t('actions.save')
+
+  = tinymce
+
+:coffee
+  $(document).on 'nested:fieldAdded', (e) ->
+    $('select').material_select()
+
+  duration = $('.duration.range-field input[type="range"')
+  duration.change ->
+    hours = Math.floor( duration.val() / 60)
+    if hours == 0
+      hours = ""
+    else if hours == 1
+      hours = hours + " Stunde"
+    else
+      hours = hours + " Stunden"
+    minutes = duration.val() % 60
+    if minutes == 0
+      minutes = ""
+    else if minutes == 1
+      minutes = minutes + " Minute"
+    else
+      minutes = minutes + " Minuten"
+    time = $.grep([hours, minutes], Boolean).join(", ") || "-"
+    $('#time').html(time)

@@ -1,0 +1,14 @@
+.fixed-action-btn
+  = link_to new_recipe_path, class: "btn-floating btn-large waves-effect waves-light red" do
+    %i.material-icons add
+%ul.collection.z-depth-1
+  - @recipes.each do |recipe|
+    %li.collection-item
+      %h5.title
+        = recipe.name
+        = link_to recipe_path(recipe), method: :delete, data: { confirm: t('actions.confirm_delete', model: recipe.name), commit: t('actions.delete'), cancel: t('actions.cancel') }, class: 'secondary-content' do
+          %i.material-icons delete_forever
+        = link_to edit_recipe_path(recipe), class: 'secondary-content' do
+          %i.material-icons edit
+      %p
+        = recipe.name

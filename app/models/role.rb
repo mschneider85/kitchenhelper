@@ -4,10 +4,6 @@ class Role < ActiveRecord::Base
 
   validates :name, uniqueness: true, presence: true
 
-  def count_users
-    User.where(role_id: self.id).count
-  end
-
   private
 
   def name_to_downcase
