@@ -1,5 +1,5 @@
 toolbar:
-  - h1 | bold italic underline removeformat | bullist numlist |  hr
+  - bold italic underline removeformat | bullist numlist |  hr
 plugins:
   - hr
 menu:
@@ -14,9 +14,10 @@ setup:
   function(editor) {
     editor.on('focus', function(e) {
       $('.label-tinymce').addClass('active');
+      $('.mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last').addClass('active');
     });
-
     editor.on('blur', function(e) {
       $('.label-tinymce').removeClass('active');
+      $('.mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last').removeClass('active');
     });
   }

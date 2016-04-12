@@ -69,3 +69,8 @@ span.badge-count:before {
 .label-tinymce.active {
   color: #009688 !important;
 }
+
+.mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last.active {
+  border-color: #009688;
+  border-width: 2px 0px 0px !important;
+}
